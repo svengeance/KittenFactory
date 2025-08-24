@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KittenFactory.Host", "KittenFactory.Host\KittenFactory.Host.csproj", "{35972289-7435-44A6-94C3-76AFD30670A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KittenFactory.Host", "src\KittenFactory.Host\KittenFactory.Host.csproj", "{35972289-7435-44A6-94C3-76AFD30670A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KittenFactory.Api", "KittenFactory.Api\KittenFactory.Api.csproj", "{30F34C6C-6048-4799-A673-C5455B5CF4A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KittenFactory.Api", "src\KittenFactory.Api\KittenFactory.Api.csproj", "{30F34C6C-6048-4799-A673-C5455B5CF4A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
