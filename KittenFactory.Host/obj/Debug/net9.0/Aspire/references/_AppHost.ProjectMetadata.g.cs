@@ -6,9 +6,9 @@ namespace Projects;
 [global::System.CodeDom.Compiler.GeneratedCode("Aspire.Hosting", null)]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage(Justification = "Generated code.")]
 [global::System.Diagnostics.DebuggerDisplay("Type = {GetType().Name,nq}, ProjectPath = {ProjectPath}")]
-public class KittenFactory
+public class KittenFactory_Host
 #pragma warning restore CS8981
 {
-    private KittenFactory() { }
-    public static string ProjectPath => """D:\KittenFactory\KittenFactory""";
+    private KittenFactory_Host() { }
+    public static string ProjectPath => """D:\KittenFactory\KittenFactory.Host""";
 }

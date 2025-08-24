@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bHbnroHIxek=",
+  "dgSpecHash": "+Eh9srbNIos=",
   "success": true,
-  "projectFilePath": "D:\\KittenFactory\\KittenFactory\\KittenFactory.csproj",
+  "projectFilePath": "D:\\KittenFactory\\KittenFactory.Host\\KittenFactory.Host.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\steve\\.nuget\\packages\\aspire.dashboard.sdk.win-x64\\9.4.1\\aspire.dashboard.sdk.win-x64.9.4.1.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\aspire.hosting\\9.4.1\\aspire.hosting.9.4.1.nupkg.sha512",

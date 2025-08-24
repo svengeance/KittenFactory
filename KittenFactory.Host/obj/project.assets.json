@@ -3319,11 +3319,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\KittenFactory\\KittenFactory\\KittenFactory.csproj",
-      "projectName": "KittenFactory",
-      "projectPath": "D:\\KittenFactory\\KittenFactory\\KittenFactory.csproj",
+      "projectUniqueName": "D:\\KittenFactory\\KittenFactory.Host\\KittenFactory.Host.csproj",
+      "projectName": "KittenFactory.Host",
+      "projectPath": "D:\\KittenFactory\\KittenFactory.Host\\KittenFactory.Host.csproj",
       "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
-      "outputPath": "D:\\KittenFactory\\KittenFactory\\obj\\",
+      "outputPath": "D:\\KittenFactory\\KittenFactory.Host\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config"
