@@ -93,3 +93,13 @@ resharper_web_config_wrong_module_highlighting = warning
 indent_style = space
 indent_size = 4
 tab_width = 4
+
+# Microsoft .NET properties
+csharp_new_line_before_members_in_object_initializers = false
+
+# ReSharper properties
+resharper_blank_lines_before_control_transfer_statements = 1
+resharper_csharp_continuous_indent_multiplier = 1
+resharper_use_continuous_indent_inside_initializer_braces = false
+resharper_wrap_arguments_style = wrap_if_long
+resharper_wrap_object_and_collection_initializer_style = wrap_if_long

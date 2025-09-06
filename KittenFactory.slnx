@@ -1,4 +1,5 @@
 ﻿<Solution>
+  <Project Path="src\KittenFactory.DatabaseMigrator\KittenFactory.DatabaseMigrator.csproj" Type="Classic C#" />
   <Project Path="src\KittenFactory.Api\KittenFactory.Api.csproj" Type="Classic C#" />
   <Project Path="src\KittenFactory.Host\KittenFactory.Host.csproj" Type="Classic C#" />
 </Solution>
