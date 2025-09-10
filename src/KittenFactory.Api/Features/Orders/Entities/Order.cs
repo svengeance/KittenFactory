@@ -12,7 +12,6 @@ public class Order
     public required IReadOnlyCollection<Kitten> Kittens { get; set; }
 
     public required User OrderedBy { get; set; }
-
     public required string OrderedById { get; set; }
 
     public DateTime? OrderedAtUtc { get; set; }
