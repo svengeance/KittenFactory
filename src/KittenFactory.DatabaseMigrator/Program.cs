@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddNpgsqlDbContext<KittensFactoryContext>(
     connectionName: "kittens-factory-db",
     configureSettings: null,
-    configureDbContextOptions: o => o.UseNpgsql(n => n.MigrationsAssembly(typeof(Program).Assembly))
+    configureDbContextOptions: o => o.UseNpgsql(n => n.MigrationsAssembly(typeof(Program).Assembly)).UseSnakeCaseNamingConvention()
 );
 
 builder.Services.AddSingleton<KittenFactoryContextMigrator>();

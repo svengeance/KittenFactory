@@ -2,6 +2,7 @@ using KittenFactory.Api.Features.Users.Endpoints;
 using KittenFactory.Api.Features.Users.Entities;
 using KittenFactory.Api.Infrastructure;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,8 @@ builder.Services.AddAuthorizationBuilder();
 
 builder.AddNpgsqlDbContext<KittensFactoryContext>(
     connectionName: "kittens-factory-db",
-    configureSettings: null
+    configureSettings: null,
+    o => o.UseNpgsql().UseSnakeCaseNamingConvention()
 );
 
 builder.Services.AddIdentity<User, UserRole>()
