@@ -8,7 +8,7 @@ public class Kitten
 {
     public int Id { get; set; }
 
-    public KittenCustomizationV1? Customization { get; set; }
+    public required KittenCustomizationV1 Customization { get; set; }
 
     public Order? Order { get; set; }
     public int? OrderId { get; set; }
