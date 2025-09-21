@@ -419,3 +419,6 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
+
+/src/KittenFactory.Api/tempkey.jwk
+/src/KittenFactory.Api/keys/

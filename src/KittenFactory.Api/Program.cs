@@ -1,37 +1,24 @@
-using KittenFactory.Api.Features.Users.Endpoints;
-using KittenFactory.Api.Features.Users.Entities;
 using KittenFactory.Api.Infrastructure;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+
+const string ApiBaseUrl = "https://localhost:12111";
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme);
-builder.Services.AddAuthorizationBuilder();
-
-builder.AddNpgsqlDbContext<KittensFactoryContext>(
-    connectionName: "kittens-factory-db",
-    configureSettings: null,
-    o => o.UseNpgsql().UseSnakeCaseNamingConvention()
-);
-
-builder.Services.AddIdentity<User, UserRole>()
-    .AddEntityFrameworkStores<KittensFactoryContext>()
-    .AddApiEndpoints();
-
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.AddKittenFactoryLogging();
+builder.AddKittenFactoryOpenApi(ApiBaseUrl);
+builder.AddKittenFactoryAuth(ApiBaseUrl);
+builder.AddKittenFactoryIdentity();
+builder.AddKittenFactoryDatabase();
+builder.AddKittenFactoryEndpoints();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-    app.UseSwagger().UseSwaggerUI();
-
+app.UseKittenFactoryEndpoints();
 app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapIdentityApi<User>();
+app.UseKittenFactoryAuth();
+app.UseKittenFactoryIdentity();
+app.UseKittenFactoryOpenApi();
 
-GetCurrentUser.Register(app);
+await app.SeedTestUsers();
 
 app.Run();

@@ -1,4 +1,5 @@
 using KittenFactory.Api.Features.Orders.Entities;
+using KittenFactory.Api.Features.Users.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -12,6 +13,9 @@ public class Kitten
 
     public Order? Order { get; set; }
     public int? OrderId { get; set; }
+
+    public User DesignedBy { get; set; } = null!;
+    public required string DesignedById { get; set; }
 }
 
 file class KittenConfiguration : IEntityTypeConfiguration<Kitten>

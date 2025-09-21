@@ -3,6 +3,7 @@ using System;
 using KittenFactory.Api.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace KittenFactory.DatabaseMigrator.Migrations
 {
     [DbContext(typeof(KittensFactoryContext))]
-    partial class KittensFactoryContextModelSnapshot : ModelSnapshot
+    [Migration("20250914195738_Add_Kitten_DesignedBy")]
+    partial class Add_Kitten_DesignedBy
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
