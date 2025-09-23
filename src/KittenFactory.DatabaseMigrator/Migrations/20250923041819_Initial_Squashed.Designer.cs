@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace KittenFactory.DatabaseMigrator.Migrations
 {
     [DbContext(typeof(KittensFactoryContext))]
-    [Migration("20250914195738_Add_Kitten_DesignedBy")]
-    partial class Add_Kitten_DesignedBy
+    [Migration("20250923041819_Initial_Squashed")]
+    partial class Initial_Squashed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -329,7 +329,7 @@ namespace KittenFactory.DatabaseMigrator.Migrations
             modelBuilder.Entity("KittenFactory.Api.Features.Kittens.Entities.Kitten", b =>
                 {
                     b.HasOne("KittenFactory.Api.Features.Users.Entities.User", "DesignedBy")
-                        .WithMany()
+                        .WithMany("DesignedKittens")
                         .HasForeignKey("DesignedById")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
@@ -456,6 +456,8 @@ namespace KittenFactory.DatabaseMigrator.Migrations
 
             modelBuilder.Entity("KittenFactory.Api.Features.Users.Entities.User", b =>
                 {
+                    b.Navigation("DesignedKittens");
+
                     b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618

@@ -326,7 +326,7 @@ namespace KittenFactory.DatabaseMigrator.Migrations
             modelBuilder.Entity("KittenFactory.Api.Features.Kittens.Entities.Kitten", b =>
                 {
                     b.HasOne("KittenFactory.Api.Features.Users.Entities.User", "DesignedBy")
-                        .WithMany()
+                        .WithMany("DesignedKittens")
                         .HasForeignKey("DesignedById")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
@@ -453,6 +453,8 @@ namespace KittenFactory.DatabaseMigrator.Migrations
 
             modelBuilder.Entity("KittenFactory.Api.Features.Users.Entities.User", b =>
                 {
+                    b.Navigation("DesignedKittens");
+
                     b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618

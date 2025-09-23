@@ -6,11 +6,13 @@ using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddKittenFactoryLogging();
 builder.AddNpgsqlDbContext<KittensFactoryContext>(
     connectionName: "kittens-factory-db",
     configureSettings: null,
-    configureDbContextOptions: o => o.UseNpgsql(n => n.MigrationsAssembly(typeof(Program).Assembly)).UseSnakeCaseNamingConvention()
+    o => o.UseNpgsql(n => n.MigrationsAssembly("KittenFactory.DatabaseMigrator")).UseSnakeCaseNamingConvention()
 );
+// builder.Services.Configure<NpgsqlDbContextOptionsBuilder>(n => n.MigrationsAssembly("KittenFactory.DatabaseMigrator"));
 
 builder.Services.AddSingleton<KittenFactoryContextMigrator>();
 builder.Services.AddHostedService<KittenFactoryContextMigrator>();
@@ -18,7 +20,7 @@ builder.Services.AddHostedService<KittenFactoryContextMigrator>();
 var app = builder.Build();
 await app.RunAsync();
 
-internal class KittenFactoryContextMigrator(IServiceProvider serviceProvider, IHostApplicationLifetime hostApplicationLifetime) : BackgroundService
+file class KittenFactoryContextMigrator(IServiceProvider serviceProvider, IHostApplicationLifetime hostApplicationLifetime) : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken cancellationToken)
     {

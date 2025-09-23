@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace KittenFactory.DatabaseMigrator.Migrations
 {
     /// <inheritdoc />
-    public partial class Relationships_Customizations : Migration
+    public partial class Initial_Squashed : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -184,7 +184,8 @@ namespace KittenFactory.DatabaseMigrator.Migrations
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     order_id = table.Column<int>(type: "integer", nullable: true),
-                    customization = table.Column<string>(type: "jsonb", nullable: true)
+                    designed_by_id = table.Column<string>(type: "text", nullable: false),
+                    customization = table.Column<string>(type: "jsonb", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -194,6 +195,12 @@ namespace KittenFactory.DatabaseMigrator.Migrations
                         column: x => x.order_id,
                         principalTable: "orders",
                         principalColumn: "id");
+                    table.ForeignKey(
+                        name: "fk_kittens_users_designed_by_id",
+                        column: x => x.designed_by_id,
+                        principalTable: "aspnet_users",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -232,6 +239,11 @@ namespace KittenFactory.DatabaseMigrator.Migrations
                 table: "aspnet_users",
                 column: "normalized_user_name",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "ix_kittens_designed_by_id",
+                table: "kittens",
+                column: "designed_by_id");
 
             migrationBuilder.CreateIndex(
                 name: "ix_kittens_order_id",

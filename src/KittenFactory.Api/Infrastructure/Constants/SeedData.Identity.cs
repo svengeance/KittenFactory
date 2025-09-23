@@ -1,10 +1,9 @@
 using Duende.IdentityServer;
 using Duende.IdentityServer.Models;
-using KittenFactory.Api.Features.Users.Entities;
 
 namespace KittenFactory.Api.Infrastructure.Constants;
 
-public static class SeedData
+public static partial class SeedData
 {
     public static class Identity
     {
@@ -34,17 +33,5 @@ public static class SeedData
                 Scopes = [ApiScopes.KittensFactoryApiScope.Name]
             };
         }
-    }
-
-    public static class Users
-    {
-        public static string TestUserPassword = "Kittens123!";
-
-        public static User TestUser = new()
-        {
-            Id = Guid.Empty.ToString(),
-            UserName = "TestUser",
-            Email = "TestUser@kittens.com"
-        };
     }
 }

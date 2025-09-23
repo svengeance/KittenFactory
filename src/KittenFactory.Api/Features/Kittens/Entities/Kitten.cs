@@ -15,16 +15,20 @@ public class Kitten
     public int? OrderId { get; set; }
 
     public User DesignedBy { get; set; } = null!;
-    public required string DesignedById { get; set; }
+    public string DesignedById { get; set; } = null!;
 }
 
 file class KittenConfiguration : IEntityTypeConfiguration<Kitten>
 {
     public void Configure(EntityTypeBuilder<Kitten> builder)
-        => builder.OwnsOne(o => o.Customization, c =>
+    {
+        builder.OwnsOne(o => o.Customization, c =>
         {
             c.ToJson();
             c.Property(p => p.Name).HasMaxLength(128);
             c.Property(p => p.Color).HasMaxLength(64);
         });
+
+        builder.HasOne(h => h.DesignedBy).WithMany(w => w.DesignedKittens).HasForeignKey(k => k.DesignedById);
+    }
 }

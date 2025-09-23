@@ -9,10 +9,10 @@ public class Order
 {
     public int Id { get; set; }
 
-    public required IReadOnlyCollection<Kitten> Kittens { get; set; }
+    public IReadOnlyCollection<Kitten> Kittens { get; set; } = new List<Kitten>();
 
-    public required User OrderedBy { get; set; }
-    public required string OrderedById { get; set; }
+    public User OrderedBy { get; set; } = null!;
+    public string OrderedById { get; set; } = null!;
 
     public DateTime? OrderedAtUtc { get; set; }
 }

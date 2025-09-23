@@ -19,6 +19,6 @@ app.UseKittenFactoryAuth();
 app.UseKittenFactoryIdentity();
 app.UseKittenFactoryOpenApi();
 
-await app.SeedTestUsers();
+await app.SeedData();
 
 app.Run();
