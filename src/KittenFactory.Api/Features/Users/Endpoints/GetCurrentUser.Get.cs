@@ -19,7 +19,7 @@ public static class GetCurrentUser
                 var user = await userManager.GetUserAsync(principal);
 
                 if (user is null)
-                    return Results.Unauthorized();
+                    return Results.Forbid();
 
                 return Results.Ok(new
                 {
